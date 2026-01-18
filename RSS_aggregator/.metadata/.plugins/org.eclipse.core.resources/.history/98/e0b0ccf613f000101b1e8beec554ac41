@@ -1,0 +1,6 @@
+package rss;
+
+public class Feed {
+	
+	private String url;
+}

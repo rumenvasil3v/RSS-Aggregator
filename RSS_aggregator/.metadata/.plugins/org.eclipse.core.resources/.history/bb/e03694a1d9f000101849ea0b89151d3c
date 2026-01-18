@@ -1,0 +1,38 @@
+package rss;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FeedReader {
+	private List<String> urls;
+	private List<Feed> feeds;
+	
+	public FeedReader(List<String> urls) {
+		this.feeds = new ArrayList<Feed>();
+		this.urls = urls;
+		
+		for (String url: this.urls) {
+			try {
+				Feed feed = new Feed(url);
+				
+				this.feeds.add(feed);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void printFeeds() {
+		for (Feed feed: this.feeds) {
+			
+			System.out.println("Title: " + feed.getTitle());
+			
+			
+			for (FeedItem item: feed.getItems()) {
+				System.out.println("  " + item);
+			}
+			
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,60 @@
+package rss;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FeedReader {
+	private List<String> urls;
+	private List<Feed> feeds;
+	
+	public FeedReader(List<String> urls) {
+		this.feeds = new ArrayList<Feed>();
+		this.urls = urls;
+		
+		for (String url: this.urls) {
+			try {
+				Feed feed = new Feed(url);
+				
+				this.feeds.add(feed);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void printFeeds() {
+		int counter = 1;
+		
+		for (Feed feed: this.feeds) {
+			
+			System.out.println("=============" + feed.getTitle() + "=============");
+			System.out.println();
+			
+			for (FeedItem item: feed.getItems()) {
+				System.out.print(counter + ". ");
+				System.out.println(item);
+				
+				System.out.println();	
+				counter++;
+			}
+			
+			System.out.println();
+		}
+	}
+	
+	public void saveFeedItems(String fileName, int[] items) {
+		try {
+			FileWriter writer = new FileWriter(fileName);
+			BufferedWriter bufferedWriter = new BufferedWriter(writer);
+			
+			for (int i = ; i < items.length; i++) {
+				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

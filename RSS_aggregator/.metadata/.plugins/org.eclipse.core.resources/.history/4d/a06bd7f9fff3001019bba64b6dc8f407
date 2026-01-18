@@ -1,0 +1,8 @@
+package rss;
+
+public class Util {
+	
+	public static List<String> readFeeds(String fileName) {
+		List<String> urls = new ArrayList<String>();
+	}
+}

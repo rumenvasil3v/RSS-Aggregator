@@ -1,0 +1,91 @@
+package rss;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Util {
+	
+	private static boolean isValidURL(String url) {
+		return url.startsWith("http://") || url.startsWith("https://");
+	}
+	
+	public static List<String> readFeeds(String fileName) {
+
+		List<String> urls = new ArrayList<String>();
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader reader = new BufferedReader(fileReader);
+			
+			String url = reader.readLine();
+			while (url != null) {
+				if (isValidURL(url)) {					
+					urls.add(url);
+				}
+				
+				url = reader.readLine();
+			}
+			
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return urls;
+	}
+	
+	public static void viewFeedFile(String fileName) {
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader reader = new BufferedReader(fileReader);
+			
+			String url = reader.readLine();
+			while (url != null) {
+				if (isValidURL(url)) {					
+					System.out.println("Feed: " + url);
+				}
+				
+				url = reader.readLine();
+			}
+			
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void saveFeedsItems(String[] feedIndices, List<FeedItem> feeds, String fileName) {
+		
+		try {
+			FileWriter writer = new FileWriter(fileName);
+			BufferedWriter bufferedWriter = new BufferedWriter(writer);
+			
+			for (String index: feedIndices) {
+				int numberItem = Integer.parseInt(index.trim());
+				
+				if (numberItem >= 0 && numberItem < feeds.size()) {					
+					FeedItem item = feeds.get(numberItem);
+					bufferedWriter.write(item.toString());
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+//	public static int[] convertStringArrayIntoIntegerArray(String[] array) {
+//		int[] numberOfItems = new int[array.length];
+//		
+//		for (int i = 0; i < array.length; i++) {
+//			numberOfItems[i] = Integer.parseInt(array[i]);
+//		}
+//		
+//		return numberOfItems;
+//	}
+}

@@ -1,0 +1,8 @@
+INDEX VERSION 1.134+C:\RSS_aggregator\.metadata\.plugins\org.eclipse.jdt.core
+4014924559.index
+2051646403.index
+2271663178.index
+1792265030.index
+989125003.index
+1865797976.index
+2091485851.index

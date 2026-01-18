@@ -1,0 +1,8 @@
+package rss;
+
+public class Feed {
+	
+	private String url = "";
+	private String title = "";
+	private List<FeedItem> items = new ArrayList<FeedItem>();
+}

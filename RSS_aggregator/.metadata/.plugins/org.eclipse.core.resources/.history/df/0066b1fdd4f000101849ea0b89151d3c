@@ -1,0 +1,44 @@
+package rss;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.rometools.rome.feed.synd.SyndEntry;
+import com.rometools.rome.feed.synd.SyndFeed;
+import com.rometools.rome.io.FeedException;
+import com.rometools.rome.io.SyndFeedInput;
+import com.rometools.rome.io.XmlReader;
+
+public class Feed {
+	
+	private String url = "";
+	private String title = "";
+	private List<FeedItem> items = new ArrayList<FeedItem>();
+	
+	public Feed(String url) {
+		this.url = url;
+		try {
+			@SuppressWarnings("deprecation")
+			SyndFeed feed = new SyndFeedInput()
+					.build(new XmlReader(new URL(this.url)));
+			
+			this.title = feed.getTitle();
+			
+			for (SyndEntry item: feed.getEntries()) {
+				
+				FeedItem feedItem = new FeedItem(item.getTitle(),
+						item.getLink(),
+						item.getDescription().getValue(),
+						item.getPublishedDate());
+				System.out.println(feedItem);
+				this.items.add(feedItem);
+			}
+			
+		} catch (IllegalArgumentException | FeedException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

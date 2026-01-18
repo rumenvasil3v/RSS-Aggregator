@@ -1,0 +1,11 @@
+package rss;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Feed {
+	
+	private String url = "";
+	private String title = "";
+	private List<FeedItem> items = new ArrayList<FeedItem>();
+}

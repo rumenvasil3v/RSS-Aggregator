@@ -1,0 +1,15 @@
+Headline: ’28 Years Later: The Bone Temple’ Crumbling In Weekend Box Office Debut
+URL: https://www.forbes.com/sites/timlammers/2026/01/17/28-years-later-the-bone-temple-crumbling-in-weekend-box-office-debut/
+Description: The horror thriller "28 Years Later: The Bone Temple" is showing huge cracks in its opening weekend at the domestic box office.
+Publication Date: Sun Jan 18 00:23:18 GMT 2026
+
+Headline: What are Tithe Maps (2021)
+URL: https://mapreading.co.uk/what-are-tithe-maps/
+Description: <a href="https://news.ycombinator.com/item?id=46586714">Comments</a>
+Publication Date: Mon Jan 12 10:50:13 GMT 2026
+
+Headline: IRISC: An ARMv7 assembly interpreter and computer architecture simulator
+URL: https://polysoftit.co.uk/irisc-web/
+Description: <a href="https://news.ycombinator.com/item?id=46663467">Comments</a>
+Publication Date: Sun Jan 18 00:05:02 GMT 2026
+

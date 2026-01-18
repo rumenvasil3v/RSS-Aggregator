@@ -1,0 +1,11 @@
+package rss;
+
+public class FeedItem {
+	
+	private String title = "";
+	
+	
+	public FeedItem() {
+		
+	}
+}

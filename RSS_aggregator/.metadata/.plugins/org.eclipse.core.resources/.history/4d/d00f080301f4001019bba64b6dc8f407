@@ -1,0 +1,37 @@
+package rss;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Util {
+	
+	private static boolean isValidURL(String url) {
+		boolean isValid = false;
+	
+		return url.startsWith("http://");
+	}
+	
+	public static List<String> readFeeds(String fileName) {
+
+		List<String> urls = new ArrayList<String>();
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader reader = new BufferedReader(fileReader);
+			
+			String url = reader.readLine();
+			while (url != null) {
+				urls.add(url);
+				
+				url = reader.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return urls;
+	}
+}

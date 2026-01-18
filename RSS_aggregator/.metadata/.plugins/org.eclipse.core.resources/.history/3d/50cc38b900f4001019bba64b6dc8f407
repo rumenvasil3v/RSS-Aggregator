@@ -1,0 +1,30 @@
+package rss;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Util {
+	
+	public static List<String> readFeeds(String fileName) {
+
+		List<String> urls = new ArrayList<String>();
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader reader = new BufferedReader(fileReader);
+			
+			String url = reader.readLine();
+			while (url != null) {
+				urls.add(url);
+				
+				url = reader.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return urls;
+	}
+}

@@ -1,0 +1,14 @@
+package rss;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Util {
+	
+	public static List<String> readFeeds(String fileName) {
+
+		List<String> urls = new ArrayList<String>();
+		FileReader fileReader = new FileReader(fileName);
+	}
+}

@@ -1,0 +1,36 @@
+package rss;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.rometools.rome.feed.synd.SyndEntry;
+
+public class FileReader {
+	
+	private List<String> urls;
+	private List<Feed> feeds;
+	
+	public FileReader(List<String> urls) {
+		this.feeds = new ArrayList<Feed>();
+		this.urls = urls;
+		
+		for (String url: this.urls) {
+			try {
+				Feed feed = new Feed(url);
+				
+				this.feeds.add(feed);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void printFeeds() {
+		for (Feed feed: this.feeds) {
+			
+			for (FeedItem item: feed.getItems()) {
+				System.out.println(item);
+			}
+		}
+	}
+}
